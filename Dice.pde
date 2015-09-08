@@ -1,4 +1,4 @@
-Die firstDie;
+
 int count;
 float vA;
 float vB;
@@ -6,7 +6,7 @@ float vC;
 void setup()
 {
 	size(400, 400);
-	//background(25);
+	background(25, 125, 75);
 	noLoop();
 
 
@@ -14,9 +14,12 @@ void setup()
 void draw()
 {
 	//your code here
-
-	firstDie = new Die(25, 25, 25);
+	for(int i = 0; i < 100; i+= 30 ) {
+	Die firstDie;
+	firstDie = new Die(i, i, 25);
 	firstDie.show();
+	}
+	
 
 }
 void mousePressed()
@@ -51,42 +54,42 @@ class Die //models one single dice cube
 		rect(rectX, rectY, rectS, rectS);
 		fill(0);
 		strokeWeight(5* (rectS/25));
-		vA = rectX*0.25;
-		vB = rectY*0.75;
-		vC = rectX*0.5;
+		vA = rectS*0.25;
+		vB = rectS*0.75;
+		vC = rectS*0.5;
 		if(count == 1) {
-			point(rectS + vC , rectS + vC);
+			point(rectX + vC , rectY + vC);
 		}
 		if (count == 2) {
-			point(rectS + vB, rectS + vA);
-			point(rectS + vA, rectS + vB);
+			point(rectX + vB, rectY + vA);
+			point(rectX + vA, rectY + vB);
 		}
 
 		if (count == 3) {
-			point(rectS + vC, rectS + vC);
-			point(rectS + vB, rectS + vA);
-			point(rectS + vA, rectS + vB);
+			point(rectX + vC, rectY + vC);
+			point(rectX + vB, rectY + vA);
+			point(rectX + vA, rectY + vB);
 		}
 		if (count == 4) {
-			point(rectS + vB, rectS + vA);
-			point(rectS + vA, rectS + vB);
-			point(rectS + vA, rectS + vA);
-			point(rectS + vB, rectS + vB);
+			point(rectX + vB, rectY + vA);
+			point(rectX + vA, rectY + vB);
+			point(rectX + vA, rectY + vA);
+			point(rectX + vB, rectY + vB);
 		}
 		if (count == 5){
-			point(rectS + vC, rectS + vC);
-			point(rectS + vB, rectS + vA);
-			point(rectS + vA, rectS + vB);
-			point(rectS + vA, rectS + vA);
-			point(rectS + vB, rectS + vB);
+			point(rectX + vC, rectY + vC);
+			point(rectX + vB, rectY + vA);
+			point(rectX + vA, rectY + vB);
+			point(rectX + vA, rectY + vA);
+			point(rectX + vB, rectY + vB);
 		}
 		if (count == 6) {
-			point(rectS + vB, rectS + vA);
-			point(rectS + vA, rectS + vB);
-			point(rectS + vA, rectS + vA);
-			point(rectS + vB, rectS + vB);
-			point(rectS + vA, rectS + vC);
-			point(rectS + vB, rectS + vC);
+			point(rectX + vB, rectY + vA);
+			point(rectX + vA, rectY + vB);
+			point(rectX + vA, rectY + vA);
+			point(rectX + vB, rectY + vB);
+			point(rectX + vA, rectY + vC);
+			point(rectX + vB, rectY + vC);
 		}
 		strokeWeight(1);
 		fill(255);
