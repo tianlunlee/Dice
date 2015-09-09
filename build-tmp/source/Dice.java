@@ -16,33 +16,48 @@ public class Dice extends PApplet {
 
 
 int count;
+Die firstDie;
 float vA;
 float vB;
 float vC;
 public void setup()
 {
-	size(400, 400);
+	size(405, 420);
 	background(25, 125, 75);
-	noLoop();
-
 
 }
 public void draw()
 {
-	//your code here
-	for(int i = 0; i < 100; i+= 30 ) {
-	Die firstDie;
-	firstDie = new Die(i, i, 25);
-	firstDie.show();
+		//your code here
+		
+	for (int j = 10; j <= 390; j += 30) {
+		
+		for(int i = 10; i <= 390; i+= 30 ) {
+			
+
+			firstDie = new Die(i, j, 25);
+			
+			if (mousePressed == true) {
+			for ( int k  = 0; k <6; k++) {
+			firstDie.roll();
+			firstDie.show();
+		}
+		}
+		
+		
 	}
+	}
+
+	
 	
 
 }
 public void mousePressed()
 {
-	redraw();
-	firstDie.roll();
-	firstDie.show();
+	
+	
+
+	
 }
 class Die //models one single dice cube
 {
