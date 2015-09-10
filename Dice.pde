@@ -4,30 +4,28 @@ Die firstDie;
 float vA;
 float vB;
 float vC;
+int tally;
 void setup()
 {
 	size(405, 420);
-	background(25, 125, 75);
+	noLoop();
 
 }
 void draw()
 {
-		//your code here
-		
+	//your code here
+	background(25, 125, 75);
+	text("Total Count: " + tally, 202.5, 415);
+	tally = 0;
 	for (int j = 10; j <= 390; j += 30) {
 		
 		for(int i = 10; i <= 390; i+= 30 ) {
-			
 
 			firstDie = new Die(i, j, 25);
-			
-			if (mousePressed == true) {
-			for ( int k  = 0; k <6; k++) {
 			firstDie.roll();
 			firstDie.show();
-		}
-		}
-		
+			tally += count;
+
 		
 	}
 	}
@@ -38,11 +36,11 @@ void draw()
 }
 void mousePressed()
 {
-	
-	
+	redraw();
 
 	
 }
+
 class Die //models one single dice cube
 {
 	//variable declarations here
@@ -58,6 +56,7 @@ class Die //models one single dice cube
 	void roll()
 	{
 		//your code here
+
 		count = (int)(Math.random()*6) + 1;
 
 		
@@ -66,8 +65,10 @@ class Die //models one single dice cube
 	void show()
 	{
 		//your code here
+		stroke(0);
+		fill(rectS+50, rectX-30, rectY-30);
 		rect(rectX, rectY, rectS, rectS);
-		fill(0);
+		
 		strokeWeight(5* (rectS/25));
 		vA = rectS*0.25;
 		vB = rectS*0.75;
